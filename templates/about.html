@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}</p>
+{% endif %}
+<div class="text">
+<p>
+    <b>What we do:</b><br>
+    This service enables you to integrate your charging needs with the fluctuations in the wholesale power market, in order to
+    reduce carbon emissions and support the integration of renewable energy sources like solar and wind.
+</p>
+<p>
+    <b>The problem:</b><br>
+    Every day, grid operators work to keep the electrical system in balance, matching what is generated with what customers are using.
+    When a cloud comes overhead, decreasing generation, or when people get home from work and crank up the air conditioner, operators
+    scramble to bring more generation online to meet the demand. However, the quickest resources to respond might not be the cleanest.
+</p>
+<p>
+    <b>The solution:</b><br>
+    As electric vehicles become more mainstream, we have a growing flexible resource to smooth out the demand on the energy system.
+    By enrolling in this service, you can elect to temporarily pause charging when there is strain on the electrical grid.
+    We look at a combination of wholesale energy prices and the carbon intensity of electricity generation in your area to determine
+    when it makes the most sense to delay chargin. Often, the best value is found by pausing charging for as little as 5 minutes.
+    We know you need the range in your car, so we will never stop stop your car from charging if it is less than halfway charged,
+    and we will make sure we don't delay charging for more than 1 hour in any day. You can also control how frequently we interrupt
+    your charging to make sure you always have the power you need. Also, we have a trip mode so you can let us know when you want 
+    full control of your charging while on a long trip.
+</p>
+<p>
+    <b>How you benefit:</b><br>
+    In return for your help in managing the grid, we will show you how many pounds of carbon dioxide you saved from being emitted.
+    You already have a clean electric vehicle. Help us unlock the full potential it has to help our planet. As an added perk, we will
+    be adding more features to help you log key performance data on your vehicle, and remotely schedule and control security and 
+    convenience features like sentry mode and climate.
+</p>
+
+</div>
+ 
+{% endblock %}

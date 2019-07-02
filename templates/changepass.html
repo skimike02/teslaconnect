@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form action="/changepass" method="POST">
+    <div class="form-screen">
+        <div class="app-title">
+            <h1>Change password</h1>
+        </div>
+        <div class="control-group">
+              <input required=required type=password name="oldpassword" placeholder="current password" pattern=".{4,64}" title="Must contain between 4 and 64 characters">
+        </div>
+        <div class="control-group">
+              <input required=required type=password name="newpassword" placeholder="new password" pattern=".{4,64}" title="Must contain between 4 and 64 characters">
+        </div>
+        <div class="control-group">
+              <input required=required type=password name="newpassword2" placeholder="confirm new password" pattern=".{4,64}" title="Must contain between 4 and 64 characters">
+        </div>
+        <input type=submit value=Update class="btn">
+    </div>
+</form>
+ 
+{% endblock %}

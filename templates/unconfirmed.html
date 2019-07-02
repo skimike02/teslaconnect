@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<h1>Welcome!</h1>
+<br>
+<p>Your account has not yet been confirmed. Please check your inbox and spam folder. You should have received an email from TeslaConnect with a confirmation link.</p>
+<p>Didn't get the email? <a href="/resend">Resend</a>.</p>
+ 
+{% endblock %}

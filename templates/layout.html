@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" ontent="width=device-width, initial-scale=1.0">
+    <title>Tesla Connect</title>
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="header">
+        <h1>Tesla Connect</h1>
+        <ul class="nav">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            {% if session['logged_in'] == True %}
+            <li>
+                <a href="/account">Your Account</a>
+            </li>
+            <li>
+                <a href="/logout">Log Out</a>
+            </li>
+            {% endif %}
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+<div class="content">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</div>
+<div class="footer"> 
+  <p>&copy; 2019
+    <script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Michael Champ</p>
+</div>
+</div>
+
+</body>

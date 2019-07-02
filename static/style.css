@@ -1,0 +1,149 @@
+* {
+box-sizing: border-box;
+}
+
+*:focus {
+outline: none;
+}
+
+body {
+font-family: Arial;
+background-color: #333333;
+min-height: 100%;
+}
+
+.header {
+  background-color: #cc0000;
+  color: #fff;
+  padding: 1rem;
+}
+
+#wrapper {
+  padding: -2rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.text{
+  width:80%;
+  background-color: white;
+  margin: 20px auto;
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 5px  
+  }
+.content{
+padding-bottom: 2.5rem;
+}
+
+.nav {
+background-color: #cc0000;
+}
+
+.nav li {
+  display: inline-block;
+  margin-right: 3rem;
+color: #fff
+}
+
+li a {
+  color: white;
+  text-decoration:none
+}
+
+li a:hover {
+ font-weight: bold;
+}
+
+.form-screen {
+margin: 20px auto;
+width: 300px;
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+table{
+margin: 20px auto;
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px;
+text-align: left
+}
+
+.flashes {
+  background: #b4ffb4;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.app-title {
+text-align: center;
+color: #333333;
+}
+
+.control-group {
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+input {
+text-align: center;
+background-color: #ECF0F1;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0;
+width: 100%;
+transition: border .5s;
+}
+
+input:focus, input:hover {
+border: 2px solid #3e6ae1;
+box-shadow: none;
+}
+
+.btn {
+border: 2px solid transparent;
+background: #cc0000;
+color: #ffffff;
+font-size: 16px;
+line-height: 25px;
+padding: 10px 0;
+text-decoration: none;
+text-shadow: none;
+text-align: center;
+border-radius: 3px;
+box-shadow: none;
+transition: 0.25s;
+display: block;
+width: 250px;
+margin: 0 auto;
+}
+
+.btn:hover {
+background-color: #333333;
+font-weight: bold;
+}
+
+.footer{
+  background-color: #cc0000;
+  color: #fff;
+  padding: .1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  position:fixed;
+  bottom: 0;
+  width:100%;
+}
+
+.error{
+  background: #ffffd0;
+  text-align: center;
+}

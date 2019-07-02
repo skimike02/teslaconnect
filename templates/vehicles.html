@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Vehicle:</h1>
+<section style="width: 80%; overflow: hidden;">
+    <h2>Charging:</h2>
+    <div style="width: 50%; float: left;">
+        <table>
+        {% for key, value in charge.items() %}
+           <tr>
+                <th> {{ key }} </th>
+                <td> {{ value }} </td>
+           </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div style="width: 50%; float: right;">
+        <form method="POST" >
+            <div class="form-screen">
+                {% if charge['Charge State']=='Charging' %}
+                <div class="control-group">
+                    <input type="submit" name="stopcharge" value="Stop Charging">
+                </div>
+                {% endif %}
+                {% if charge['Charge State']=='Stopped' %}
+                <div class="control-group">
+                    <input type="submit" name="startcharge" value="Start Charging">
+                </div>
+                {% endif %}
+                <div class="control-group">
+                    <div style="float: left; padding:0px;">
+                        <p><b>Save less</b></p>
+                    </div>
+                    <div style="float: right; padding:0px;">
+                        <p><b>Save more</b></p>
+                    </div>                    
+                    <input type="range" min="10" max="100" value="{{priorthresh}}" class="slider" id="threshold" name="threshold"  onchange="updatevalue()">
+                </div> 
+
+            </div>
+        </form>
+    </div>
+</section>
+<section style="width: 80%; overflow: hidden;">
+    <h2>Climate:</h2>
+    <div style="width: 50%; float: left;">
+        <table>
+        {% for key, value in climate.items() %}
+           <tr>
+                <th> {{ key }} </th>
+                <td> {{ value }} </td>
+           </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div style="width: 50%; float: right;">
+        <form method="POST">
+            <div class="form-screen">
+                {% if climate['Air Conditioning']=='Off' %}
+                <div class="control-group">
+                    <input type="submit" name="acon" value="Turn on A/C">
+                </div>
+                {% else %}
+                <div class="control-group">
+                    <input type="submit" name="acoff" value="Turn off A/C">
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</section>
+<div>
+    <h2>Location:</h2>
+    {{loc|safe}}
+</div>
+<script>
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function updatevalue() {
+    data=threshold.value
+    
+    $.ajax({
+        type : "POST",
+        url : "vehicles?id="+getUrlVars()["id"],
+        data: JSON.stringify(data, null, '\t'),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            console.log(result);
+        }
+    });
+
+}
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form action="/link" method="POST">
+    <div class="form-screen">
+        <div class="app-title">
+            <h1>Link your Tesla account</h1>
+        </div>
+        <div class="control-group">
+              <input required=required type=text name="email" placeholder="Tesla.com email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*@quot;)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" title="Must be a valid email address">
+        </div>
+        <div class="control-group">
+              <input required=required type=password name="password" placeholder="Tesla.com password">
+        </div>
+        <div class="control-group">
+              <input type=submit value=Link class="btn">
+        </div>
+    </div>
+</form>
+{% endblock %}

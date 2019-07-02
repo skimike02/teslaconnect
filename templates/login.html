@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form action="/login" method="POST">
+    <div class="form-screen">
+        <div class="app-title">
+            <h1>Login</h1>
+        </div>
+        <div class="control-group">
+            <input required=required type=text name="username" placeholder="username" pattern="^(?=.*[a-zA-Z0-9].*)([a-zA-Z0-9]{2,})$" title="Must contain at least 2 characters Only alphanumeric characters allowed.">
+        </div>
+        <div class="control-group">
+            <input required=required type=password name="password" placeholder="password">
+        </div>
+        <input type=submit value=Login class="btn">
+    </div>
+    <div class="form-screen">
+        <a href="{{ url_for('register') }}" class="btn">Register</a>
+    </div>
+</form>
+{% endblock %}

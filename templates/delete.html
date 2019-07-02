@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form action="/delete" method="POST">
+    <div class="form-screen">
+        <div class="app-title">
+            <h1>Delete Account</h1>
+        </div>
+        <div class="control-group">
+              <input required=required type=password name="password" placeholder="password" pattern=".{4,64}" title="Must contain between 4 and 64 characters">
+        </div>
+        <input type=submit value=Update class="btn">
+    </div>
+</form>
+ 
+{% endblock %}

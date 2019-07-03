@@ -250,7 +250,7 @@ def vehicles():
             info=users.VehicleInfo(session['username'],id)
             charge={}
             charge['Battery Level']=str(info['charge_state']['battery_level'])+'%'
-            charge['Battery Range']=int(info['charge_state']['battery_range'])+str(info['gui_settings']['gui_distance_units'])[0:str(info['gui_settings']['gui_distance_units']).find('/')]
+            charge['Battery Range']=str(int(info['charge_state']['battery_range']))+str(info['gui_settings']['gui_distance_units'])[0:str(info['gui_settings']['gui_distance_units']).find('/')]
             charge['Charge State']=info['charge_state']['charging_state']
             charge['Charge Limit']=str(info['charge_state']['charge_limit_soc'])+'%'
             if charge['Charge State']=='Charging':
